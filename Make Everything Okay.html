@@ -1,0 +1,120 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Everything Okay</title>
+    <style>
+        body {
+            font-family: 'Calvoni', cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #87CEEB; /* Light Blue (Sky Blue) */
+        }
+
+        #hero-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #main-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        #main-button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        #text-section {
+            margin-bottom: 30px;
+        }
+
+        #loading-line {
+            height: 4px; /* Increased height */
+            background-color: #2ecc71;
+            width: 0;
+            transition: width 3s ease-in-out; /* Slower loading process */
+        }
+
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            text-align: center;
+        }
+
+        #popup-message {
+            margin-bottom: 20px;
+        }
+
+        .popup-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div id="hero-section">
+        <button id="main-button" onclick="startLoading()">Make everything okay</button>
+        <div id="text-section">
+            <p>Push this button to make everything okay.</p>
+        </div>
+        <div id="loading-line"></div>
+    </div>
+
+    <div id="popup">
+        <div id="popup-message">Everything is okay now! If you think it's still not okay, please consider changing your point of view and touch the button again!</div>
+        <button class="popup-button" onclick="closePopup()">Okay</button>
+        <button class="popup-button" onclick="tryAgain()">Try again</button>
+    </div>
+
+    <script>
+        function startLoading() {
+            document.getElementById('loading-line').style.width = '100%';
+            setTimeout(showPopup, 3000); // Adjust the time according to your loading animation duration
+        }
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function tryAgain() {
+            document.getElementById('popup').style.display = 'none';
+            // Add any additional logic for "Try again" action
+        }
+    </script>
+</body>
+</html>
